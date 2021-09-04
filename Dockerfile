@@ -1,5 +1,6 @@
 FROM adoptopenjdk/openjdk11
 LABEL maintainer="geekymon2@gmail.com"
+ARG ARTIFACT_NAME
 EXPOSE 8080
-ADD target/car-listing-service.jar car-listing-service.jar
-ENTRYPOINT ["java","-jar","car-listing-service.jar"]
+ADD target/$ARTIFACT_NAME*.jar $ARTIFACT_NAME.jar
+ENTRYPOINT ["java","-jar","$ARTIFACT_NAME.jar"]
