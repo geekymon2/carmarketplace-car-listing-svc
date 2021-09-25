@@ -19,4 +19,9 @@ public class CarListingServiceImpl implements CarListingService {
     public void AddCar() {
 
     }
+
+    @Override
+    public void UpdateCar() {
+
+    }
 }

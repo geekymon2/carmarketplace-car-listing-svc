@@ -7,4 +7,5 @@ import java.util.List;
 public interface CarListingService {
     List<Car> getCars();
     void AddCar();
+    void UpdateCar();
 }
