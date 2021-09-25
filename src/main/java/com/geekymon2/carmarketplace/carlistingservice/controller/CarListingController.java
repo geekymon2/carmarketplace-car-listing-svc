@@ -13,9 +13,7 @@ import com.geekymon2.carmarketplace.carlistingservice.models.StatusDto;
 import com.geekymon2.carmarketplace.carlistingservice.serviceimpl.CarListingServiceImpl;
 
 import org.modelmapper.ModelMapper;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -60,6 +58,17 @@ public class CarListingController {
     @GetMapping(value = "/cars")
     public List<CarDto> getCars() {
         return service.getCars().stream().map(this::carToDto).collect(Collectors.toList());
+    }
+
+    @PostMapping(value = "/car")
+    public Long AddCar(CarDto carDto) {
+        Car car = mapper.map(carDto, Car.class);
+        return service.AddCar(car);
+    }
+
+    @PutMapping(value = "/car")
+    public void UpdateCar(CarDto carDto) {
+        service.UpdateCar(mapper.map(carDto, Car.class));
     }
 
     private CarDto carToDto(Car car) {
