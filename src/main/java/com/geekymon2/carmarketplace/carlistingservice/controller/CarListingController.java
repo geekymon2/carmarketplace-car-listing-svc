@@ -4,7 +4,11 @@ import java.io.IOException;
 import java.net.UnknownHostException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.List;
+import java.util.stream.Collectors;
 
+import com.geekymon2.carmarketplace.carlistingservice.entities.Car;
+import com.geekymon2.carmarketplace.carlistingservice.models.CarDto;
 import com.geekymon2.carmarketplace.carlistingservice.models.StatusDto;
 import com.geekymon2.carmarketplace.carlistingservice.serviceimpl.CarListingServiceImpl;
 
@@ -51,6 +55,16 @@ public class CarListingController {
         }
 
         return new StatusDto(environment, version, hostname);
-    }    
-    
+    }
+
+    @GetMapping(value = "/cars")
+    public List<CarDto> getCars() {
+        return service.getCars().stream().map(this::carToDto).collect(Collectors.toList());
+    }
+
+    private CarDto carToDto(Car car) {
+        CarDto dto = mapper.map(car, CarDto.class);
+        return dto;
+    }
+
 }

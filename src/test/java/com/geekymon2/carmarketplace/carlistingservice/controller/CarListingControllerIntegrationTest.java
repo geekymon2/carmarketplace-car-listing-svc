@@ -5,19 +5,25 @@ import com.geekymon2.carmarketplace.carlistingservice.serviceimpl.CarListingServ
 import org.junit.jupiter.api.Test;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import lombok.SneakyThrows;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.DisplayName;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.TestPropertySource;
 
 @SpringBootTest
-class CarListingControllerTest {
+@AutoConfigureTestDatabase
+@ActiveProfiles("test")
+@TestPropertySource(locations = "classpath:application-test.yml")
+class CarListingControllerIntegrationTest {
     private final CarListingController controller;
 
     @Autowired
-    public CarListingControllerTest(CarListingServiceImpl service, ModelMapper mapper) {
+    public CarListingControllerIntegrationTest(CarListingServiceImpl service, ModelMapper mapper) {
         this.controller = new CarListingController(service, mapper);
     }    
 

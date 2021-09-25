@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: car-listing-service
+  config:
+    import: optional:configserver:http://localhost:8888
+  cloud:
+    config:
+      uri: http://localhost:8888
+      fail-fast: false
+      retry:
+        maxAttempts: 20
+server:
+  servlet:
+    context-path: ${base.context.path}
