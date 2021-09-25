@@ -63,8 +63,6 @@ public class CarListingController {
     }
 
     private CarDto carToDto(Car car) {
-        CarDto dto = mapper.map(car, CarDto.class);
-        return dto;
+        return mapper.map(car, CarDto.class);
     }
-
 }
