@@ -1,0 +1,5 @@
+-- insert cars
+INSERT INTO car(make, model, year, doors, seats, price, odometer, description, body_type, transmission) VALUES ('FORD', 'Ford Falcon', 2009, 5, 5, 22500, 140000, 'Ford Falcon G6E Sedan', 'SEDAN','AUTOMATIC')
+INSERT INTO car(make, model, year, doors, seats, price, odometer, description, body_type, transmission) VALUES ('FORD', 'Ford Focus', 2005, 5, 5, 12500, 180000, 'Ford Focus Sedan', 'SEDAN','AUTOMATIC')
+INSERT INTO car(make, model, year, doors, seats, price, odometer, description, body_type, transmission) VALUES ('MAZDA', 'Mazda 323', 1995, 5, 5, 5300, 195000, 'Mazda 323 Protege', 'SEDAN','AUTOMATIC')
+INSERT INTO car(make, model, year, doors, seats, price, odometer, description, body_type, transmission) VALUES ('HYUNDAI', 'Hyundai Tucson', 2021, 4, 5, 29500, 0, 'Hyundai Tucson', 'SUV','AUTOMATIC')
