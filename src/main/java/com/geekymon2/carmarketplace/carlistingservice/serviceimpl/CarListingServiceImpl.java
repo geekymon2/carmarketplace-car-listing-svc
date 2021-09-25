@@ -6,5 +6,11 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CarListingServiceImpl implements CarListingService {
+
+    @Override
+    public void AddCarListing() {
+        // TODO Auto-generated method stub
+        
+    }
     
 }
