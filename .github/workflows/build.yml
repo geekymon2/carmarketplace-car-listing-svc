@@ -71,7 +71,6 @@ jobs:
           DOCKERHUB_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
           DOCKERHUB_REPOSITORY: geekymon2/${{ steps.docker.outputs.IMAGE_NAME }}
           README_FILEPATH: service/README.md
-
   deployserviceci:
     environment: ci
     name: deploy CI
