@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface CarListingService {
     List<Car> getCars();
-    Long AddCar(Car car);
-    void UpdateCar(Car car);
+    Long addCar(Car car);
+    void updateCar(Car car);
+    Long getCarsCount();
+    
 }

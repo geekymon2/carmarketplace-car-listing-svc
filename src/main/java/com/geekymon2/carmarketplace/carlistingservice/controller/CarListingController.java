@@ -61,14 +61,14 @@ public class CarListingController {
     }
 
     @PostMapping(value = "/car")
-    public Long AddCar(CarDto carDto) {
+    public Long addCar(CarDto carDto) {
         Car car = mapper.map(carDto, Car.class);
-        return service.AddCar(car);
+        return service.addCar(car);
     }
 
     @PutMapping(value = "/car")
-    public void UpdateCar(CarDto carDto) {
-        service.UpdateCar(mapper.map(carDto, Car.class));
+    public void updateCar(CarDto carDto) {
+        service.updateCar(mapper.map(carDto, Car.class));
     }
 
     private CarDto carToDto(Car car) {

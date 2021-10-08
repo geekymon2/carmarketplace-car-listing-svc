@@ -26,12 +26,17 @@ public class CarListingServiceImpl implements CarListingService {
     }
 
     @Override
-    public Long AddCar(Car car) {
+    public Long addCar(Car car) {
         return carRepository.save(car).getId();
     }
 
     @Override
-    public void UpdateCar(Car car) {
+    public void updateCar(Car car) {
         carRepository.save(car);
+    }
+
+    @Override
+    public Long getCarsCount() {
+        return carRepository.count();
     }
 }
