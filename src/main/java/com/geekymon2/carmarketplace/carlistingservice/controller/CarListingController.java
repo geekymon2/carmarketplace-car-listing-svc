@@ -7,6 +7,8 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.validation.Valid;
+
 import com.geekymon2.carmarketplace.carlistingservice.entities.Car;
 import com.geekymon2.carmarketplace.carlistingservice.models.CarDto;
 import com.geekymon2.carmarketplace.carlistingservice.models.StatusDto;
@@ -66,7 +68,7 @@ public class CarListingController {
     }
 
     @PostMapping(value = "/car")
-    public Long addCar(CarDto carDto) {
+    public Long addCar(@Valid CarDto carDto) {
         Car car = mapper.map(carDto, Car.class);
         return service.addCar(car);
     }
