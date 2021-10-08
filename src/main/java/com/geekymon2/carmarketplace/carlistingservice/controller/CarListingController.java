@@ -60,6 +60,11 @@ public class CarListingController {
         return service.getCars().stream().map(this::carToDto).collect(Collectors.toList());
     }
 
+    @GetMapping(value = "/cars/count")
+    public Long getCarsCount() {
+        return service.getCarsCount();
+    }
+
     @PostMapping(value = "/car")
     public Long addCar(CarDto carDto) {
         Car car = mapper.map(carDto, Car.class);
