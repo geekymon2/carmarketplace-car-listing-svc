@@ -15,6 +15,10 @@
 	<description>Car Listing Service</description>
 	<dependencies>
 		<dependency>
+			<groupId>com.geekymon2.carmarketplace</groupId>
+			<artifactId>carmarketplace-core</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>org.modelmapper</groupId>
 			<artifactId>modelmapper</artifactId>
 		</dependency>
@@ -79,8 +83,12 @@
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<scope>provided</scope>
-		</dependency>		
-	</dependencies>
+		</dependency>
+        <dependency>
+            <groupId>com.geekymon2.carmarketplace</groupId>
+            <artifactId>carmarketplace-core</artifactId>
+        </dependency>
+    </dependencies>
 	<build>
 		<finalName>car-listing-service</finalName>	
 		<plugins>
