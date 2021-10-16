@@ -40,4 +40,4 @@ eureka:
 
 server:
   servlet:
-    context-path: ${base.context.path}
+    context-path: /api/car-listing
