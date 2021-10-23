@@ -7,15 +7,17 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import javax.validation.Valid;
-
 import com.geekymon2.carmarketplace.carlistingservice.entities.Car;
 import com.geekymon2.carmarketplace.carlistingservice.models.CarDto;
 import com.geekymon2.carmarketplace.carlistingservice.models.StatusDto;
 import com.geekymon2.carmarketplace.carlistingservice.serviceimpl.CarListingServiceImpl;
 
 import org.modelmapper.ModelMapper;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -44,12 +46,10 @@ public class CarListingController {
             hostname = java.net.InetAddress.getLocalHost().getHostName();
             environment = System.getenv("ENVIRONMENT");
             version = Files.readString(Paths.get("/version.properties")).split("=")[1];
-        }
-        catch (UnknownHostException uhx) {
+        } catch (UnknownHostException uhx) {
             hostname = UNKNOWN_LABEL;
             log.error(String.format("Error getting hostname: %s", uhx));
-        }
-        catch (IOException iox) {
+        } catch (IOException iox) {
             version = UNKNOWN_LABEL;
             log.error(String.format("Error getting version: %s", iox));
         }
@@ -68,7 +68,7 @@ public class CarListingController {
     }
 
     @PostMapping(value = "/car")
-    public Long addCar(@Valid CarDto carDto) {
+    public Long addCar(CarDto carDto) {
         Car car = mapper.map(carDto, Car.class);
         return service.addCar(car);
     }
