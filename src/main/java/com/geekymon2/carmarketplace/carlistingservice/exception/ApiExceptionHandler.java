@@ -6,6 +6,7 @@ import com.geekymon2.carmarketplace.core.exception.RecordNotFoundException;
 import com.geekymon2.carmarketplace.core.models.ErrorResponseDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.context.request.WebRequest;
@@ -17,6 +18,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+@ControllerAdvice
 public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
     private String INCORRECT_REQUEST = "INCORRECT_REQUEST";
     private String BAD_REQUEST = "BAD_REQUEST";

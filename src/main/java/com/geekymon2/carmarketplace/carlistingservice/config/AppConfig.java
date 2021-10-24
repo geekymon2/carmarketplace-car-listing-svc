@@ -1,5 +1,7 @@
 package com.geekymon2.carmarketplace.carlistingservice.config;
 
+import com.geekymon2.carmarketplace.carlistingservice.validation.CarListingValidator;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,4 +26,9 @@ public class AppConfig {
     public ModelMapper modelMapper() {
         return new ModelMapper();
     }
+
+    @Bean
+    public CarListingValidator validator() {
+        return new CarListingValidator();
+    }      
 }

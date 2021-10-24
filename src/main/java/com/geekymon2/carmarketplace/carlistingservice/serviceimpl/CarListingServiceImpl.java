@@ -3,6 +3,7 @@ package com.geekymon2.carmarketplace.carlistingservice.serviceimpl;
 import com.geekymon2.carmarketplace.carlistingservice.entities.Car;
 import com.geekymon2.carmarketplace.carlistingservice.repository.CarRepository;
 import com.geekymon2.carmarketplace.carlistingservice.service.CarListingService;
+import com.geekymon2.carmarketplace.carlistingservice.validation.CarListingValidator;
 
 import org.springframework.stereotype.Service;
 
@@ -13,9 +14,11 @@ import java.util.List;
 public class CarListingServiceImpl implements CarListingService {
 
     private final CarRepository carRepository;
+    private final CarListingValidator validator;
 
-    public CarListingServiceImpl(CarRepository carRepository) {
+    public CarListingServiceImpl(CarRepository carRepository, CarListingValidator validator) {
         this.carRepository = carRepository;
+        this.validator = validator;
     }
 
     @Override
@@ -27,6 +30,7 @@ public class CarListingServiceImpl implements CarListingService {
 
     @Override
     public Long addCar(Car car) {
+        validator.validateCar(car);
         return carRepository.save(car).getId();
     }
 
