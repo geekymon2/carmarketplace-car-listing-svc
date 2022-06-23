@@ -84,10 +84,6 @@
 			<artifactId>lombok</artifactId>
 			<scope>provided</scope>
 		</dependency>
-        <dependency>
-            <groupId>com.geekymon2.carmarketplace</groupId>
-            <artifactId>carmarketplace-core</artifactId>
-        </dependency>
     </dependencies>
 	<build>
 		<finalName>car-listing-service</finalName>	
