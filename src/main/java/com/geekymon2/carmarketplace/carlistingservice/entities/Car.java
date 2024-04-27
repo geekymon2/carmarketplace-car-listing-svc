@@ -28,7 +28,7 @@ public class Car {
 
     @NotBlank(message = "model is mandatory")
     private String model;
-    private int year;
+    private int yearBuild;
     private int doors;
     private int seats;
     private double price;
