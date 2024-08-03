@@ -1,7 +1,7 @@
 package com.geekymon2.carmarketplace.carlistingservice.controller;
 
-import com.geekymon2.carmarketplace.carlistingservice.models.StatusDto;
 import com.geekymon2.carmarketplace.carlistingservice.serviceimpl.CarListingServiceImpl;
+import com.geekymon2.carmarketplace.core.models.StatusDto;
 import org.junit.jupiter.api.Test;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

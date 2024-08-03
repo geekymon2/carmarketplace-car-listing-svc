@@ -1,17 +1,14 @@
 package com.geekymon2.carmarketplace.carlistingservice.controller;
 
-import java.io.IOException;
-import java.net.UnknownHostException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import com.geekymon2.carmarketplace.carlistingservice.entities.Car;
 import com.geekymon2.carmarketplace.carlistingservice.models.CarDto;
-import com.geekymon2.carmarketplace.carlistingservice.models.StatusDto;
 import com.geekymon2.carmarketplace.carlistingservice.serviceimpl.CarListingServiceImpl;
 
+import com.geekymon2.carmarketplace.core.common.ApiStatus;
+import com.geekymon2.carmarketplace.core.models.StatusDto;
 import org.modelmapper.ModelMapper;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -37,24 +34,7 @@ public class CarListingController {
 
     @GetMapping(value = "/status")
     public StatusDto getStatus() {
-        String hostname = "";
-        String environment = "";
-        String version = "0.0.0";
-
-        try {
-            log.info("Performing status check.");
-            hostname = java.net.InetAddress.getLocalHost().getHostName();
-            environment = System.getenv("ENVIRONMENT");
-            version = Files.readString(Paths.get("/version.properties")).split("=")[1];
-        } catch (UnknownHostException uhx) {
-            hostname = UNKNOWN_LABEL;
-            log.error(String.format("Error getting hostname: %s", uhx));
-        } catch (IOException iox) {
-            version = UNKNOWN_LABEL;
-            log.error(String.format("Error getting version: %s", iox));
-        }
-
-        return new StatusDto(environment, version, hostname);
+        return new ApiStatus().getStatus();
     }
 
     @GetMapping(value = "/cars")
