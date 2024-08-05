@@ -4,6 +4,8 @@
     <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
     <envs>
       <env name="SPRING_PROFILES_ACTIVE" value="local" />
+      <env name="CARLIST_DB_NAME" value="carlistdbdev" />	  
+      <env name="ENVIRONMENT" value="localhost" />	  
     </envs>
     <option name="MAIN_CLASS_NAME" value="com.geekymon2.carmarketplace.carlistingservice.CarListingServiceApplication" />
     <module name="car-listing-service" />
