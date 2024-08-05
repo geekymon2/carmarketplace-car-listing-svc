@@ -37,9 +37,4 @@ app-config:
     jwt-secret: secret
     jwt-validity: 20
   cors-config:
-    allowed-origins: http://localhost:4200
-    max-age: 3600
-    allow-credentials: true
-    allowed-header: "*"
-    allowed-method: "*"
-    exposed-header: ""
+    enabled: false
