@@ -9,8 +9,8 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.context.SpringBootTest;
 
 import lombok.SneakyThrows;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.DisplayName;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestPropertySource;
@@ -32,6 +32,6 @@ class CarListingControllerIntegrationTest {
     @DisplayName("Test status endpoint.")
     void getStatus() {
         StatusDto status = controller.getStatus();
-        assertThat(status.getHostname().equals(java.net.InetAddress.getLocalHost().getHostName())).isTrue();
+        assertEquals(status.getHostname(), java.net.InetAddress.getLocalHost().getHostName());
     }
 }
